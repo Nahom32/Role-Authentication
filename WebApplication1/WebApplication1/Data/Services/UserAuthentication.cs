@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using WebApplication1.Models;
-using System.Security.Claims;
+
 
 
 namespace WebApplication1.Data.Services
@@ -18,7 +18,7 @@ namespace WebApplication1.Data.Services
             _userManager = userManager;
             _roleManager = roleManager;  
         }
-        public async Task<Status> LoginAsync(LoginModel model, ClaimTypes claimTypes)
+        public async Task<Status> LoginAsync(LoginModel model)
         {
             var search = await _userManager.FindByEmailAsync(model.Email);
             Status status = new Status();
