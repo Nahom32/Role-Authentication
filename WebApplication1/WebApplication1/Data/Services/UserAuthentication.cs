@@ -83,6 +83,8 @@ namespace WebApplication1.Data.Services
             ApplicationUser applicationUser = new ApplicationUser
             {
                 UserName = model.UserName,
+                Name = model.Name,
+                PictureUrl = "",
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 EmailConfirmed = true

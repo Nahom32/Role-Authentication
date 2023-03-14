@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 using WebApplication1.Data;
+using WebApplication1.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 builder.Services.ConfigureApplicationCookie(op => op.LoginPath = "/UserAuthentcation/Login");
+builder.Services.AddScoped<IUserAuthentication, UserAuthentication>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
